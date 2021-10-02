@@ -7,9 +7,12 @@ import { removeFromDb } from '../../utilities/fakedb';
 
 const OrderReview = () => {
     const [products] = useProducts();
+    // console.log(products.length);
     const [cart, setCart] = useCart(products);
+    // console.log("cart length: ", cart.length);
 
     const handleRemove = key => {
+        // console.log(key);
         const newCart = cart.filter(product => product.key !== key);
         setCart(newCart);
         removeFromDb(key);
@@ -27,7 +30,9 @@ const OrderReview = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <button className="btn-regular">Place Order</button>
+                </Cart>
             </div>
         </div>
     );

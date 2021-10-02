@@ -27,7 +27,7 @@ const updateDb = cart => {
 const removeFromDb = id => {
   const exists = getDb();
   if (!exists) {
-
+    console.log("DB not found");
   }
   else {
     const shopping_cart = JSON.parse(exists);
